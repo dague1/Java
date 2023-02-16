@@ -6,7 +6,7 @@ has to be delivered in a standard, cross-platform format.
 
 ## Project
 
-**Name: **
+**Name:**
 
 The Algorithms
 
@@ -71,10 +71,21 @@ We plan to continue working with this repo for this assignment, and find a new o
 
 
 
-2. Are the functions just complex, or also long?
-3. What is the purpose of the functions?
-4. Are exceptions taken into account in the given measurements?
-5. Is the documentation clear w.r.t. all the possible outcomes?
+**2. Are the functions just complex, or also long?**
+
+Some functions are longer than others.  For example, remove() is 94 LoC, which obviously is very high. MyAtoi() is 87 LoC. Divide() is 67 LoC. DivideMessageWithP() is only 40 LoC, which is a much better number. calculateMaxOfMin() is 57 LoC. RegexRecursion(2) has 32 LoC, RegexRecursion(4) has 34 LoC, RegexRecursion(5) has 39 LoC. regexBU() has 30 LoC, and minimalpartitions() has 61 LoC.
+
+**4. What is the purpose of the functions?**
+
+Remove() removes a node from a binary tree. MyAtoi() converts a string to a 32-bit signed integer. Divide() performs long division of two integers. divideMessageWithP() is a helper function of the CRC algorithm which divides the message with the number P. CalculateMaxOfMin calculates the maximum value in a minimum window size given an array. This one is quite difficult to explain without an example, so check out https://www.geeksforgeeks.org/find-the-maximum-of-minimums-for-every-window-size-in-a-given-array/ for an example. The three regexRecursion() functions implement a wildcard pattern matching algorithm that checks if a wildcard is matched with text. They are implemented in different ways; strictly recursively, recursively using virtual indices, and dynamically (memoization). The regexBu does the same, but uses tabulation instead of memoization. Minimalpartitions() finds the minimal numbner needed to partition a string into a number of palindromes dynamically. 
+
+**5. Are exceptions taken into account in the given measurements?**
+
+Divide() catches exceptions. We think that lizard might not ____, because the manual and automatic results are not equal.
+
+**6. Is the documentation clear w.r.t. all the possible outcomes?**
+
+The documentation is not overly clear, and w.r.t. all the possible outcomes of the methods, absolutely not. It is unfortunate that the documentation is so lackluster in some classes, wheras it is acceptable in others. We do feel like when contibuting to an open source project, the bare minimum one can do is to document the contibutions clearly, and to take code reviewing seriously. It is especially frustrating when the documentation is inconsistent, and some classes are perfectly documented, while others do not have a single meaningful comment.
 
 ## Refactoring
 
