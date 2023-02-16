@@ -6,20 +6,48 @@ has to be delivered in a standard, cross-platform format.
 
 ## Project
 
-Name:
+**Name: **
 
-URL:
+The Algorithms
 
-One or two sentences describing it
+**URL:**
+
+https://github.com/TheAlgorithms/Java
+
+**One or two sentences describing it:**
+
+It is a collection of famous, well established algorithms implemented in Java, and is open source initiative-approved (The MIT License).
 
 ## Onboarding experience
 
-Did it build and run as documented?
-    
-See the assignment for details; if everything works out of the box,
-there is no need to write much here. If the first project(s) you picked
-ended up being unsuitable, you can describe the "onboarding experience"
-for each project, along with reason(s) why you changed to a different one.
+### 1. How easily can you build the project? Briefly describe if everything worked as documented or not:
+
+**General notes:**
+
+The README has little to no useful information for newcomers, and it essentially useless.
+
+**(a) Did you have to install a lot of additional tools to build the software?**
+
+No. It was straight forward to just fork the repo and build with Maven.
+
+**(b) Were those tools well documented?**
+
+The documentation of the repo is poor. There is no clear instructions as to how to work with the repo. Luckily, it turned out to be quite easy.
+
+**(c) Were other components installed automatically by the build script?**
+
+Yes.
+
+**(d) Did the build conclude automatically without errors?**
+
+Yes.
+
+**(e) How well do examples and tests run on your system(s)?**
+
+Everything runs fine as of now.
+
+### 2. Do you plan to continue or choose another project?
+We plan to continue working with this repo for this assignment, and find a new one for assignment 4. Collections of algorithms are convenient for this assignment, but is not allowed for assignment 4.
 
 
 ## Complexity
