@@ -55,6 +55,22 @@ We plan to continue working with this repo for this assignment, and find a new o
 1. What are your results for ten complex functions?
    * Did all methods (tools vs. manual count) get the same result?
    * Are the results clear?
+   
+| Function | File Path | C-Complexity (auto) | C-Complexity (manual 1) | C-Complexity (manual 2) |
+|---|---|---|---|---|
+| Binary Search | asd/asd1.java | 2 | 2 | 2 |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+|  |  |  |  |  |
+
+
+
 2. Are the functions just complex, or also long?
 3. What is the purpose of the functions?
 4. Are exceptions taken into account in the given measurements?
