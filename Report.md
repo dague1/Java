@@ -56,18 +56,18 @@ We plan to continue working with this repo for this assignment, and find a new o
    * Did all methods (tools vs. manual count) get the same result?
    * Are the results clear?
    
-| Function | File Path | C-Complexity (auto) | C-Complexity (manual 1) | C-Complexity (manual 2) |
-|---|---|---|---|---|
-| remove | datastructures/trees/BinaryTree.java | 17 | - | - |
-| myAtoi | strings/MyAtoi.java | 37 | - | - |
-| divide | maths/LongDivision.java | 19 | - | - |
-| divideMessageWithP | others/CRCAlgorithm.java | 18 | - | - |
-| calculateMaxOfMin | datastructures/stacks/MaximumMinimumWindow.java | 15 | - | - |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
-|  |  |  |  |  |
+| Function | Param | File Path | C-Complexity (auto) | C-Complexity (manual 1) | C-Complexity (manual 2) |
+|---|---|---|---|---|---|
+| remove | - | datastructures/trees/BinaryTree.java | 17 | - | - |
+| myAtoi | - | strings/MyAtoi.java | 37 | - | - |
+| divide | - | maths/LongDivision.java | 19 | - | - |
+| divideMessageWithP | - | others/CRCAlgorithm.java | 18 | - | - |
+| calculateMaxOfMin | - | datastructures/stacks/MaximumMinimumWindow.java | 15 | - | - |
+| regexRecursion | 2 | dynamicprogramming/RegexMatching.java | 13 | - | - |
+| regexRecursion | 4 | dynamicprogramming/RegexMatching.java | 13 | - | - |
+| regexRecursion | 5 | dynamicprogramming/RegexMatching.java | 16 | - | - |
+| regexBU | 2 | dynamicprogramming/RegexMatching.java | 9 | - | - |
+| minimalpartitions | 1 | dynamicprogramming/PalindromicPartitioning.java | 12 | - | - |
 
 
 
