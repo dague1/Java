@@ -60,7 +60,7 @@ We plan to continue working with this repo for this assignment, and find a new o
 |---|---|---|---|---|---|
 | remove | 1 | datastructures/trees/BinaryTree.java | 17 | 11 | - |
 | myAtoi | 1 | strings/MyAtoi.java | 37 | 32 | - |
-| divide | 2 | maths/LongDivision.java | 19 | 12 | - |
+| divide | 2 | maths/LongDivision.java | 19 | 14 | - |
 | divideMessageWithP | 1 | others/CRCAlgorithm.java | 18 | 14 | - |
 | calculateMaxOfMin | 2 | datastructures/stacks/MaximumMinimumWindow.java | 15 | 8 | - |
 | regexRecursion | 2 | dynamicprogramming/RegexMatching.java | 13 | - | - |
@@ -81,7 +81,7 @@ Remove() removes a node from a binary tree. MyAtoi() converts a string to a 32-b
 
 **5. Are exceptions taken into account in the given measurements?**
 
-Divide() catches exceptions. We think that lizard might not ____, because the manual and automatic results are not equal.
+None of the functions listed explicitly throws any exception. The divide() function on the other hand catches exceptions. We believe that lizard does take exceptions into account since we took them into account in the manual measurements, and we still got a lower complexity than lizard measured.
 
 **6. Is the documentation clear w.r.t. all the possible outcomes?**
 
