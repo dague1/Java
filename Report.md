@@ -58,11 +58,11 @@ We plan to continue working with this repo for this assignment, and find a new o
    
 | Function | Param | File Path | C-Complexity (auto) | C-Complexity (manual 1) | C-Complexity (manual 2) |
 |---|---|---|---|---|---|
-| remove | - | datastructures/trees/BinaryTree.java | 17 | - | - |
-| myAtoi | - | strings/MyAtoi.java | 37 | - | - |
-| divide | - | maths/LongDivision.java | 19 | - | - |
-| divideMessageWithP | - | others/CRCAlgorithm.java | 18 | - | - |
-| calculateMaxOfMin | - | datastructures/stacks/MaximumMinimumWindow.java | 15 | - | - |
+| remove | 1 | datastructures/trees/BinaryTree.java | 17 | 11 | - |
+| myAtoi | 1 | strings/MyAtoi.java | 37 | 32 | - |
+| divide | 2 | maths/LongDivision.java | 19 | 12 | - |
+| divideMessageWithP | 1 | others/CRCAlgorithm.java | 18 | 14 | - |
+| calculateMaxOfMin | 2 | datastructures/stacks/MaximumMinimumWindow.java | 15 | 8 | - |
 | regexRecursion | 2 | dynamicprogramming/RegexMatching.java | 13 | - | - |
 | regexRecursion | 4 | dynamicprogramming/RegexMatching.java | 13 | - | - |
 | regexRecursion | 5 | dynamicprogramming/RegexMatching.java | 16 | - | - |
