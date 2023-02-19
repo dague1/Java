@@ -116,13 +116,7 @@ Number of test cases added: two per team member (P) or at least four (P+).
 
 ## Self-assessment: Way of working
 
-Current state according to the Essence standard: ...
-
-Was the self-assessment unanimous? Any doubts about certain items?
-
-How have you improved so far?
-
-Where is potential for improvement?
+The current state of way of working is in the “in place” state. The group established principles early on during the project and was in consensus regarding how these principles were to be followed and what constraints existed within the group and the project. The foundation was established early as practices were selected and agreed upon. This allowed the team to start putting in work and make use of the practices and tools previously selected, which were inspected with in place procedures earlier defined. The platforms for communication and support were established early on, which enabled collaboration and communication. Currently, the practices are being used by the whole team and the tasks being performed. The obstacles for the next state are mainly naturally applying the practices, which is usually that comes with time. The noticeable improvements during the course are how quick the practices, policies and tools could be established to create a workflow that was clear and easy to follow. Where there is room for further improvements lies mostly with things related to naturally adapting to new principles and procedures, as the teams were re-randomized halfway through the course. 
 
 ## Overall experience
 
