@@ -62,11 +62,55 @@ We plan to continue working with this repo for this assignment, and find a new o
 
 ## Refactoring
 
-Plan for refactoring complex code:
+_We plan to refactor remove(), divide(), and the three regexRecursion() functions._
 
-Estimated impact of refactoring (lower CC, but other drawbacks?).
+**remove()**
 
-Carried out refactoring (optional, P+):
+This function has a **very** high cyclomatic complexity, and a high LoC count. The function has separate chunks of code for the different cases "no children", "two children", "one child". We will create separate methods for these, since the individual cases have a quite high LoC count, and consist mainly of conditionals. This will substantially reduce the CC, LoC, and make the code more readable and debuggable.
+
+
+**divide()**
+
+This function also has a very high CC and high LoC count. Furthermore, it is lacks any sort of documentation, despite having a quite complex flow. We will separate the first conditionals and the base case from the main algorithm in the function. We will also try to have the error handling in a separate function. 
+
+
+**regexRecursion(2)**
+
+This function is not as bad as the aforementioned ones. We can definitely divide it into two functions instead, where one takes care of the base cases and one does the recursive logic. This will reduce the CC and the LoC by quite a lot. This functino is also not commented at all, so we want to comment the code to highlight basecases and recursive cases. 
+
+
+**regexRecursion(4)**
+
+We do not have too much to add here, since the three regex-functions are quite similar. See **regexRecursion(2)**.
+
+
+**regexRecursion(5)**
+
+We do not have too much to add here, since the three regex-functions are quite similar. See **regexRecursion(2)**.
+
+
+
+### Carried out refactoring (optional, P+):
+
+**remove()**
+
+
+
+**divide()**
+
+
+
+
+**regexRecursion(2)**
+
+
+
+**regexRecursion(4)**
+
+
+
+**regexRecursion(5)**
+
 
 git diff ...
 
