@@ -1,5 +1,6 @@
 package com.thealgorithms.maths;
 
+import com.thealgorithms.CoverageResults;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 
@@ -10,6 +11,7 @@ public class LongDivisionTest {
     @AfterAll
     static void checkCoverage() {
         boolean[] coverageDivideFlags = LongDivision.getCoverageDivideFlags();
+        CoverageResults.printCoverageResults("divide(int dividend, int divisor) in maths/LongDivision.java", coverageDivideFlags);
     }
 	
     @Test
