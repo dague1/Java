@@ -56,18 +56,18 @@ We plan to continue working with this repo for this assignment, and find a new o
    * Did all methods (tools vs. manual count) get the same result?
    * Are the results clear?
    
-| Function | Param | File Path | C-Complexity (auto) | C-Complexity (manual 1) | C-Complexity (manual 2) |
-|---|---|---|---|---|---|
-| remove | 1 | datastructures/trees/BinaryTree.java | 17 | 11 | 12 |
-| myAtoi | 1 | strings/MyAtoi.java | 37 | 32 | 37 |
-| divide | 2 | maths/LongDivision.java | 19 | 14 | 19 |
-| divideMessageWithP | 1 | others/CRCAlgorithm.java | 18 | 14 | 23 |
-| calculateMaxOfMin | 2 | datastructures/stacks/MaximumMinimumWindow.java | 15 | 8 | 17 |
-| regexRecursion | 2 | dynamicprogramming/RegexMatching.java | 13 | - | - |
-| regexRecursion | 4 | dynamicprogramming/RegexMatching.java | 13 | - | - |
-| regexRecursion | 5 | dynamicprogramming/RegexMatching.java | 16 | - | - |
-| regexBU | 2 | dynamicprogramming/RegexMatching.java | 9 | - | - |
-| minimalpartitions | 1 | dynamicprogramming/PalindromicPartitioning.java | 12 | - | - |
+| Function | Param | File Path | C-Complexity (auto) | C-Complexity (manual 1) | C-Complexity (manual 2) | C-Complexity (manual 3) |
+|---|---|---|---|---|---|---|
+| remove | 1 | datastructures/trees/BinaryTree.java | 17 | 11 | 12 | 15 |
+| myAtoi | 1 | strings/MyAtoi.java | 37 | 32 | 37 | 30 |
+| divide | 2 | maths/LongDivision.java | 19 | 14 | 19 | 14 |
+| divideMessageWithP | 1 | others/CRCAlgorithm.java | 18 | 14 | 23 | 14 |
+| calculateMaxOfMin | 2 | datastructures/stacks/MaximumMinimumWindow.java | 15 | 8 | 17 | 13 |
+| regexRecursion | 2 | dynamicprogramming/RegexMatching.java | 13 | - | - | - |
+| regexRecursion | 4 | dynamicprogramming/RegexMatching.java | 13 | - | - | - |
+| regexRecursion | 5 | dynamicprogramming/RegexMatching.java | 16 | - | - | - |
+| regexBU | 2 | dynamicprogramming/RegexMatching.java | 9 | - | - | - |
+| minimalpartitions | 1 | dynamicprogramming/PalindromicPartitioning.java | 12 | - | - | - |
 
 
 
