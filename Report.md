@@ -106,6 +106,15 @@ Show the comments that describe the requirements for the coverage.
 
 Report of old coverage: [link]
 
+| Function | Param | File Path | Coverage (OpenClover) | Coverage (DIY) |
+|---|---|---|---|---|
+| remove | 1 | datastructures/trees/BinaryTree.java | 0% | 0% |
+| divide | 2 | maths/LongDivision.java | 86.6% | 68% |
+| regexRecursion | 2 | dynamicprogramming/RegexMatching.java | - | - |
+| regexRecursion | 4 | dynamicprogramming/RegexMatching.java | - | - |
+| regexRecursion | 5 | dynamicprogramming/RegexMatching.java | - | - |
+| regexBU | 2 | dynamicprogramming/RegexMatching.java | - | - |
+
 Report of new coverage: [link]
 
 Test cases added:
