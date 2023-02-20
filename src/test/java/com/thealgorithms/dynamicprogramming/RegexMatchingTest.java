@@ -60,6 +60,35 @@ public class RegexMatchingTest {
         int pvidx = 1;
         int[][] strg = new int[svidx+1][pvidx+1];
         strg[svidx][pvidx] = 1;
+        assertFalse(RegexMatching.regexRecursion(input1, input2, svidx, pvidx, strg))
+    }
+
+    void methodThreeShouldReturnTrueWhenSrcAndPatLengthEqualsToSvidxAndPvidx() {
+        String input1 = "src";
+        String input2 = "pat";
+        int svidx = 3;
+        int pvidx = 3;
+        int[][] strg = new int[input1.length()][input2.length()];
+        assertTrue(RegexMatching.regexRecursion(input1, input2, svidx, pvidx, strg));
+    }
+
+    @Test
+    void methodThreeShouldReturnFalseWhenSrcLengthNotEqualSvidx() {
+        String input1 = "src";
+        String input2 = "pa*";
+        int svidx = 2;
+        int pvidx = 3;
+        int[][] strg = new int[input1.length()][input2.length()];
+        assertFalse(RegexMatching.regexRecursion(input1, input2, svidx, pvidx, strg));
+    }
+
+    @Test
+    void methodThreeShouldReturnFalseWhenPatLengthNotEqualPvidxAndNoCharIsStar() {
+        String input1 = "src";
+        String input2 = "pa";
+        int svidx = 3;
+        int pvidx = 1;
+        int[][] strg = new int[input1.length()][input2.length()];
         assertFalse(RegexMatching.regexRecursion(input1, input2, svidx, pvidx, strg));
     }
 
@@ -73,4 +102,15 @@ public class RegexMatchingTest {
         strg[svidx][pvidx] = 2;
         assertTrue(RegexMatching.regexRecursion(input1, input2, svidx, pvidx, strg));
     }
+    
+    void methodThreeShouldReturnTrueWhenPatLengthNotEqualPvidxButCharIsStar() {
+        String input1 = "src";
+        String input2 = "p*";
+        int svidx = 3;
+        int pvidx = 1;
+        int[][] strg = new int[input1.length()][input2.length()];
+        assertTrue(RegexMatching.regexRecursion(input1, input2, svidx, pvidx, strg));
+    }
+
+
 }
