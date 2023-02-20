@@ -94,11 +94,12 @@ We do not have too much to add here, since the three regex-functions are quite s
 
 **remove()**
 
+As written in the plan, we refactored the different cases (0,1 or 2 children) into separate helper functions. This effectively brought the CC down from 15 (manual try 3) to 4, which obviously is a significant improvement. Furthermore, we maintained readability which we are quite proud of.
 
 
 **divide()**
 
-
+For this one, it was a lot harder to do meaningful refactoring. We effectively reduced the CC by exactly 35% by introducing an error handling function and some updating functions. We do think the readability is somewhat compromised, and the LoC count is more or less the ame.
 
 
 **regexRecursion(2)**

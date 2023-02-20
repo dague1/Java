@@ -35,7 +35,7 @@ public class RegexMatching {
         return regexRecursionPT2(src, pat);
     } 
 
-    // Part 2:  If part 1 does'nt find a simple answer this maethod uses recursion to find an solve the problem.
+    // Part 2:  If part 1 doesn't find a simple answer this method uses recursion to solve the problem.
     static boolean regexRecursionPT2(String src, String pat) {
         char chs = src.charAt(0);
         char chp = pat.charAt(0);
@@ -58,6 +58,7 @@ public class RegexMatching {
 
     // Method 2: Using Recursion and breaking string using virtual index
     // Time Complexity=0(2^(N+M)) Space Complexity=Recursion Extra Space
+    // Part 1: No recursion is used, instead this method checks if the input matches 1 of 5 cases that don't need any recursive method to return an answer.
     static boolean regexRecursion(
         String src,
         String pat,
@@ -66,18 +67,27 @@ public class RegexMatching {
     ) {
         if (src.length() == svidx && pat.length() == pvidx) {
             return true;
-        }
-        if (src.length() != svidx && pat.length() == pvidx) {
+        } else if (src.length() != svidx && pat.length() == pvidx) {
             return false;
-        }
-        if (src.length() == svidx && pat.length() != pvidx) {
+        } else if (src.length() == svidx) {
             for (int i = pvidx; i < pat.length(); i++) {
                 if (pat.charAt(i) != '*') {
                     return false;
                 }
             }
             return true;
+        } else {
+            return regexRecursionPT2(src, pat, svidx, pvidx);
         }
+    }
+
+    // Part 2:  If part 1 doesn't find a simple answer this method uses recursion to solve the problem.
+    static boolean regexRecursionPT2(
+            String src,
+            String pat,
+            int svidx,
+            int pvidx
+    ) {
         char chs = src.charAt(svidx);
         char chp = pat.charAt(pvidx);
 
