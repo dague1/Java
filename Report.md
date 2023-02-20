@@ -55,10 +55,37 @@ We plan to continue working with this repo for this assignment, and find a new o
 1. What are your results for ten complex functions?
    * Did all methods (tools vs. manual count) get the same result?
    * Are the results clear?
-2. Are the functions just complex, or also long?
-3. What is the purpose of the functions?
-4. Are exceptions taken into account in the given measurements?
-5. Is the documentation clear w.r.t. all the possible outcomes?
+   
+| Function | Param | File Path | C-Complexity (auto) | C-Complexity (manual 1) | C-Complexity (manual 2) | C-Complexity (manual 3) |
+|---|---|---|---|---|---|---|
+| remove | 1 | datastructures/trees/BinaryTree.java | 17 | 11 | 12 | 15 |
+| myAtoi | 1 | strings/MyAtoi.java | 37 | 32 | 37 | 30 |
+| divide | 2 | maths/LongDivision.java | 19 | 14 | 19 | 14 |
+| divideMessageWithP | 1 | others/CRCAlgorithm.java | 18 | 14 | 23 | 14 |
+| calculateMaxOfMin | 2 | datastructures/stacks/MaximumMinimumWindow.java | 15 | 8 | 17 | 13 |
+| regexRecursion | 2 | dynamicprogramming/RegexMatching.java | 13 | - | - | - |
+| regexRecursion | 4 | dynamicprogramming/RegexMatching.java | 13 | - | - | - |
+| regexRecursion | 5 | dynamicprogramming/RegexMatching.java | 16 | - | - | - |
+| regexBU | 2 | dynamicprogramming/RegexMatching.java | 9 | - | - | - |
+| minimalpartitions | 1 | dynamicprogramming/PalindromicPartitioning.java | 12 | - | - | - |
+
+
+
+**2. Are the functions just complex, or also long?**
+
+Some functions are longer than others.  For example, remove() is 94 LoC, which obviously is very high. MyAtoi() is 87 LoC. Divide() is 67 LoC. DivideMessageWithP() is only 40 LoC, which is a much better number. calculateMaxOfMin() is 57 LoC. RegexRecursion(2) has 32 LoC, RegexRecursion(4) has 34 LoC, RegexRecursion(5) has 39 LoC. regexBU() has 30 LoC, and minimalpartitions() has 61 LoC.
+
+**4. What is the purpose of the functions?**
+
+Remove() removes a node from a binary tree. MyAtoi() converts a string to a 32-bit signed integer. Divide() performs long division of two integers. divideMessageWithP() is a helper function of the CRC algorithm which divides the message with the number P. CalculateMaxOfMin calculates the maximum value in a minimum window size given an array. This one is quite difficult to explain without an example, so check out https://www.geeksforgeeks.org/find-the-maximum-of-minimums-for-every-window-size-in-a-given-array/ for an example. The three regexRecursion() functions implement a wildcard pattern matching algorithm that checks if a wildcard is matched with text. They are implemented in different ways; strictly recursively, recursively using virtual indices, and dynamically (memoization). The regexBu does the same, but uses tabulation instead of memoization. Minimalpartitions() finds the minimal numbner needed to partition a string into a number of palindromes dynamically. 
+
+**5. Are exceptions taken into account in the given measurements?**
+
+None of the functions listed explicitly throws any exception. The divide() function on the other hand catches exceptions. We believe that lizard does take exceptions into account since we took them into account in the manual measurements, and we still got a lower complexity than lizard measured.
+
+**6. Is the documentation clear w.r.t. all the possible outcomes?**
+
+The documentation is not overly clear, and w.r.t. all the possible outcomes of the methods, absolutely not. It is unfortunate that the documentation is so lackluster in some classes, wheras it is acceptable in others. We do feel like when contibuting to an open source project, the bare minimum one can do is to document the contibutions clearly, and to take code reviewing seriously. It is especially frustrating when the documentation is inconsistent, and some classes are perfectly documented, while others do not have a single meaningful comment.
 
 ## Refactoring
 
