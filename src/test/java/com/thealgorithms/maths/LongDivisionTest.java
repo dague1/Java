@@ -10,8 +10,7 @@ public class LongDivisionTest {
 
     @AfterAll
     static void checkCoverage() {
-        boolean[] coverageDivideFlags = LongDivision.getCoverageDivideFlags();
-        CoverageResults.printCoverageResults("divide(int dividend, int divisor) in maths/LongDivision.java", coverageDivideFlags);
+        CoverageResults.printCoverageResults("divide(int dividend, int divisor) in maths/LongDivision.java", LongDivision.getCoverageDivideFlags());
     }
 	
     @Test

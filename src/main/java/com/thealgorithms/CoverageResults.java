@@ -13,7 +13,7 @@ public class CoverageResults {
             System.out.printf("%-15d %b\n", i, results[i]);
         }
         System.out.println("=========================================================================");
-        System.out.printf("Total Coverage: %d%% (%d/%d) \n", (numberBranchCovered* 100) / results.length, numberBranchCovered, results.length);
+        System.out.printf("Total Coverage: %d%% (%d/%d) \n", (numberBranchCovered * 100) / results.length, numberBranchCovered, results.length);
         System.out.println("=========================================================================");
     }
 
