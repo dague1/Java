@@ -163,7 +163,7 @@ public class BinaryTree {
     public boolean removeNoHelper(Node temp) {
             if (temp == root) {
                 root = null;
-            } // This if/else assigns the new node to be either the left or right child of the parent
+            } // Assigns the new node to be either the left or right child of the parent
             else if (temp.parent.data < temp.data) {
                 temp.parent.right = null;
             } else {
