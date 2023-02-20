@@ -14,8 +14,9 @@ package com.thealgorithms.dynamicprogramming;
  */
 public class RegexMatching {
 
-    // Method 1: Using Recursion
+    // Method 1: Using Recursion in two parts to lower complexity of individual methods.
     // Time Complexity=0(2^(N+M)) Space Complexity=Recursion Extra Space
+    // Part 1: No recursion is used, instead this method checks if the input matches 1 of 5 cases that don't need any recursive method to return an answer. 
     static boolean regexRecursion(String src, String pat) {
         if (src.length() == 0 && pat.length() == 0) {
             return true;
@@ -31,6 +32,11 @@ public class RegexMatching {
             }
             return true;
         }
+        return regexRecursionPT2(src, pat);
+    } 
+
+    // Part 2:  If part 1 does'nt find a simple answer this maethod uses recursion to find an solve the problem.
+    static boolean regexRecursionPT2(String src, String pat) {
         char chs = src.charAt(0);
         char chp = pat.charAt(0);
 
