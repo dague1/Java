@@ -14,18 +14,36 @@ package com.thealgorithms.dynamicprogramming;
  */
 public class RegexMatching {
 
+    private static boolean[] coverageDivideFlags2arg = new boolean[7];
+    private static boolean[] coverageDivideFlags4arg = new boolean[7];
+    private static boolean[] coverageDivideFlags5arg = new boolean[8];
+
+    public static boolean[] getCoverageDivideFlags2arg() {
+        return coverageDivideFlags2arg;
+    }
+    public static boolean[] getCoverageDivideFlags4arg() {
+        return coverageDivideFlags4arg;
+    }
+    public static boolean[] getCoverageDivideFlags5arg() {
+        return coverageDivideFlags5arg;
+    }
+
     // Method 1: Using Recursion
     // Time Complexity=0(2^(N+M)) Space Complexity=Recursion Extra Space
     static boolean regexRecursion(String src, String pat) {
         if (src.length() == 0 && pat.length() == 0) {
+            coverageDivideFlags2arg[0] = true;
             return true;
         }
         if (src.length() != 0 && pat.length() == 0) {
+            coverageDivideFlags2arg[1] = true;
             return false;
         }
         if (src.length() == 0 && pat.length() != 0) {
+            coverageDivideFlags2arg[2] = true;
             for (int i = 0; i < pat.length(); i++) {
                 if (pat.charAt(i) != '*') {
+                    coverageDivideFlags2arg[3] = true;
                     return false;
                 }
             }
@@ -39,12 +57,15 @@ public class RegexMatching {
 
         boolean ans;
         if (chs == chp || chp == '?') {
+            coverageDivideFlags2arg[4] = true;
             ans = regexRecursion(ros, rop);
         } else if (chp == '*') {
+            coverageDivideFlags2arg[5] = true;
             boolean blank = regexRecursion(src, rop);
             boolean multiple = regexRecursion(ros, pat);
             ans = blank || multiple;
         } else {
+            coverageDivideFlags2arg[6] = true;
             ans = false;
         }
         return ans;
@@ -59,14 +80,18 @@ public class RegexMatching {
         int pvidx
     ) {
         if (src.length() == svidx && pat.length() == pvidx) {
+            coverageDivideFlags4arg[0] = true;
             return true;
         }
         if (src.length() != svidx && pat.length() == pvidx) {
+            coverageDivideFlags4arg[1] = true;
             return false;
         }
         if (src.length() == svidx && pat.length() != pvidx) {
+            coverageDivideFlags4arg[2] = true;
             for (int i = pvidx; i < pat.length(); i++) {
                 if (pat.charAt(i) != '*') {
+                    coverageDivideFlags4arg[3] = true;
                     return false;
                 }
             }
@@ -77,12 +102,15 @@ public class RegexMatching {
 
         boolean ans;
         if (chs == chp || chp == '?') {
+            coverageDivideFlags4arg[4] = true;
             ans = regexRecursion(src, pat, svidx + 1, pvidx + 1);
         } else if (chp == '*') {
+            coverageDivideFlags4arg[5] = true;
             boolean blank = regexRecursion(src, pat, svidx, pvidx + 1);
             boolean multiple = regexRecursion(src, pat, svidx + 1, pvidx);
             ans = blank || multiple;
         } else {
+            coverageDivideFlags4arg[6] = true;
             ans = false;
         }
         return ans;
@@ -98,20 +126,25 @@ public class RegexMatching {
         int[][] strg
     ) {
         if (src.length() == svidx && pat.length() == pvidx) {
+            coverageDivideFlags5arg[0] = true;
             return true;
         }
         if (src.length() != svidx && pat.length() == pvidx) {
+            coverageDivideFlags5arg[1] = true;
             return false;
         }
         if (src.length() == svidx && pat.length() != pvidx) {
+            coverageDivideFlags5arg[2] = true;
             for (int i = pvidx; i < pat.length(); i++) {
                 if (pat.charAt(i) != '*') {
+                    coverageDivideFlags5arg[3] = true;
                     return false;
                 }
             }
             return true;
         }
         if (strg[svidx][pvidx] != 0) {
+            coverageDivideFlags5arg[4] = true;
             return strg[svidx][pvidx] == 1 ? false : true;
         }
         char chs = src.charAt(svidx);
@@ -119,12 +152,15 @@ public class RegexMatching {
 
         boolean ans;
         if (chs == chp || chp == '?') {
+            coverageDivideFlags5arg[5] = true;
             ans = regexRecursion(src, pat, svidx + 1, pvidx + 1, strg);
         } else if (chp == '*') {
+            coverageDivideFlags5arg[6] = true;
             boolean blank = regexRecursion(src, pat, svidx, pvidx + 1, strg);
             boolean multiple = regexRecursion(src, pat, svidx + 1, pvidx, strg);
             ans = blank || multiple;
         } else {
+            coverageDivideFlags5arg[7] = true;
             ans = false;
         }
         strg[svidx][pvidx] = ans == false ? 1 : 2;
