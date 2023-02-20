@@ -43,4 +43,43 @@ public class BinaryTreeTest {
         assertTrue(binaryTree.remove(root.right.data));
     }
 
+    @Test
+    void testRemoveTwoChildrenNode() {
+        BinaryTree.Node root = new BinaryTree.Node(5);
+        BinaryTree binaryTree = new BinaryTree(root);
+        binaryTree.put(9);
+        binaryTree.put(4);
+        binaryTree.remove(root.data);
+        assertTrue(binaryTree.getRoot().data == 9);
+    }
+
+    @Test
+    void testRemoveTwoChildrenNodeNotRoot() {
+        BinaryTree.Node root = new BinaryTree.Node(5);
+        BinaryTree binaryTree = new BinaryTree(root);
+        binaryTree.put(9);
+        binaryTree.put(8);
+        binaryTree.put(10);
+        binaryTree.remove(9);
+        assertTrue(binaryTree.getRoot().right.data == 10);
+    }
+
+    @Test
+    void testRemoveOneChildNodeRightChild() {
+        BinaryTree.Node root = new BinaryTree.Node(5);
+        BinaryTree binaryTree = new BinaryTree(root);
+        binaryTree.put(9);
+        binaryTree.remove(root.data);
+        assertTrue(binaryTree.getRoot().data == 9);
+    }
+
+    @Test
+    void testRemoveOneChildNodeLeftChild() {
+        BinaryTree.Node root = new BinaryTree.Node(5);
+        BinaryTree binaryTree = new BinaryTree(root);
+        binaryTree.put(3);
+        binaryTree.remove(root.data);
+        assertTrue(binaryTree.getRoot().data == 3);
+    }
+
 }
