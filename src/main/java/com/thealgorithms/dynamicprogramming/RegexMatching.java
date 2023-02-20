@@ -103,38 +103,55 @@ public class RegexMatching {
         int pvidx,
         int[][] strg
     ) {
-        if (src.length() == svidx && pat.length() == pvidx) {
+        int result = checkInputs(src, pat, svidx, pvidx);
+        if (result == 1)
             return true;
+        else if (result == 0)
+            return false;
+        else {
+            if (strg[svidx][pvidx] != 0) {
+                return strg[svidx][pvidx] == 1 ? false : true;
+            }
+            char chs = src.charAt(svidx);
+            char chp = pat.charAt(pvidx);
+
+            boolean ans;
+            if (chs == chp || chp == '?') {
+                ans = regexRecursion(src, pat, svidx + 1, pvidx + 1, strg);
+            } else if (chp == '*') {
+                boolean blank = regexRecursion(src, pat, svidx, pvidx + 1, strg);
+                boolean multiple = regexRecursion(src, pat, svidx + 1, pvidx, strg);
+                ans = blank || multiple;
+            } else {
+                ans = false;
+            }
+            strg[svidx][pvidx] = ans == false ? 1 : 2;
+            return ans;
+        }
+    }
+
+    static int checkInputs(
+        String src,
+        String pat,
+        int svidx,
+        int pvidx
+    ) {
+        if (src.length() == svidx && pat.length() == pvidx) {
+            return 1;
         }
         if (src.length() != svidx && pat.length() == pvidx) {
-            return false;
+            return 0;
         }
         if (src.length() == svidx && pat.length() != pvidx) {
             for (int i = pvidx; i < pat.length(); i++) {
                 if (pat.charAt(i) != '*') {
-                    return false;
+                    return 0;
                 }
             }
-            return true;
+            return 1;
         }
-        if (strg[svidx][pvidx] != 0) {
-            return strg[svidx][pvidx] == 1 ? false : true;
-        }
-        char chs = src.charAt(svidx);
-        char chp = pat.charAt(pvidx);
 
-        boolean ans;
-        if (chs == chp || chp == '?') {
-            ans = regexRecursion(src, pat, svidx + 1, pvidx + 1, strg);
-        } else if (chp == '*') {
-            boolean blank = regexRecursion(src, pat, svidx, pvidx + 1, strg);
-            boolean multiple = regexRecursion(src, pat, svidx + 1, pvidx, strg);
-            ans = blank || multiple;
-        } else {
-            ans = false;
-        }
-        strg[svidx][pvidx] = ans == false ? 1 : 2;
-        return ans;
+        return 2;
     }
 
     // Method 4: Bottom-Up DP(Tabulation)
