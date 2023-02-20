@@ -28,4 +28,19 @@ public class LongDivisionTest {
         assertEquals(10, LongDivision.divide(105,10));
     }
 
+    @Test
+    void testDivideDividendZero() {
+        assertEquals(0, LongDivision.divide(0,100));
+    }
+
+    @Test
+    void testDivideNegativeDividendLess() {
+        assertEquals(0, LongDivision.divide(-10,100));
+    }
+
+    @Test
+    void testDividePositiveDividendPositiveDivisorPart1Zero() {
+        assertEquals(10, LongDivision.divide(100,10));
+    }
+
 }
