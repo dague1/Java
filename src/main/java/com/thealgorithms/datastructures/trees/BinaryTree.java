@@ -16,6 +16,8 @@ import java.util.Queue;
  */
 public class BinaryTree {
 
+    private static boolean[] coverageRemoveFlags = new boolean[26];
+
     /**
      * This class implements the nodes that will go on the Binary Tree. They
      * consist of the data in them, the node to the left, the node to the right,
@@ -132,41 +134,41 @@ public class BinaryTree {
      * @param value Value to be deleted
      * @return If the value was deleted
      */
-    public boolean remove(int value, boolean[] coverageFlags) {
+    public boolean remove(int value) {
         // temp is the node to be deleted
         Node temp = find(value);
 
         // If the value doesn't exist
         if (temp.data != value) {
             //BRANCH ID 0
-            coverageFlags[0] = true;
+            coverageRemoveFlags[0] = true;
             //===========
             return false;
         } else {
             //BRANCH ID 1
-            coverageFlags[1] = true;
+            coverageRemoveFlags[1] = true;
             //===========
         }
 
         // No children
         if (temp.right == null && temp.left == null) {
             //BRANCH ID 2
-            coverageFlags[2] = true;
+            coverageRemoveFlags[2] = true;
             //===========
             if (temp == root) {
                 //BRANCH ID 3
-                coverageFlags[3] = true;
+                coverageRemoveFlags[3] = true;
                 //===========
                 root = null;
             } // This if/else assigns the new node to be either the left or right child of the parent
             else if (temp.parent.data < temp.data) {
                 //BRANCH ID 4
-                coverageFlags[4] = true;
+                coverageRemoveFlags[4] = true;
                 //===========
                 temp.parent.right = null;
             } else {
                 //BRANCH ID 5
-                coverageFlags[5] = true;
+                coverageRemoveFlags[5] = true;
                 //===========
                 temp.parent.left = null;
             }
@@ -174,7 +176,7 @@ public class BinaryTree {
         } // Two children
         else if (temp.left != null && temp.right != null) {
             //BRANCH ID 6
-            coverageFlags[6] = true;
+            coverageRemoveFlags[6] = true;
             //===========
             Node successor = findSuccessor(temp);
 
@@ -185,11 +187,11 @@ public class BinaryTree {
             // If the successor has a right child, the child's grandparent is it's new parent
             if (successor.parent != temp) {
                 //BRANCH ID 7
-                coverageFlags[7] = true;
+                coverageRemoveFlags[7] = true;
                 //===========
                 if (successor.right != null) {
                     //BRANCH ID 8
-                    coverageFlags[8] = true;
+                    coverageRemoveFlags[8] = true;
                     //===========
                     successor.right.parent = successor.parent;
                     successor.parent.left = successor.right;
@@ -197,7 +199,7 @@ public class BinaryTree {
                     successor.right.parent = successor;
                 } else {
                     //BRANCH ID 9
-                    coverageFlags[9] = true;
+                    coverageRemoveFlags[9] = true;
                     //===========
                     successor.parent.left = null;
                     successor.right = temp.right;
@@ -205,13 +207,13 @@ public class BinaryTree {
                 }
             } else {
                 //BRANCH ID 10
-                coverageFlags[10] = true;
+                coverageRemoveFlags[10] = true;
                 //===========
             }
 
             if (temp == root) {
                 //BRANCH ID 11
-                coverageFlags[11] = true;
+                coverageRemoveFlags[11] = true;
                 //===========
                 successor.parent = null;
                 root = successor;
@@ -219,19 +221,19 @@ public class BinaryTree {
             } // If you're not deleting the root
             else {
                 //BRANCH ID 12
-                coverageFlags[12] = true;
+                coverageRemoveFlags[12] = true;
                 //===========
                 successor.parent = temp.parent;
 
                 // This if/else assigns the new node to be either the left or right child of the parent
                 if (temp.parent.data < temp.data) {
                     //BRANCH ID 13
-                    coverageFlags[13] = true;
+                    coverageRemoveFlags[13] = true;
                     //===========
                     temp.parent.right = successor;
                 } else {
                     //BRANCH ID 14
-                    coverageFlags[14] = true;
+                    coverageRemoveFlags[14] = true;
                     //===========
                     temp.parent.left = successor;
                 }
@@ -240,22 +242,22 @@ public class BinaryTree {
         } // One child
         else {
             //BRANCH ID 15
-            coverageFlags[15] = true;
+            coverageRemoveFlags[15] = true;
             //===========
             // If it has a right child
             if (temp.right != null) {
                 //BRANCH ID 16
-                coverageFlags[16] = true;
+                coverageRemoveFlags[16] = true;
                 //===========
                 if (temp == root) {
                     //BRANCH ID 17
-                    coverageFlags[17] = true;
+                    coverageRemoveFlags[17] = true;
                     //===========
                     root = temp.right;
                     return true;
                 } else {
                     //BRANCH ID 18
-                    coverageFlags[18] = true;
+                    coverageRemoveFlags[18] = true;
                     //===========
                 }
 
@@ -264,12 +266,12 @@ public class BinaryTree {
                 // Assigns temp to left or right child
                 if (temp.data < temp.parent.data) {
                     //BRANCH ID 19
-                    coverageFlags[19] = true;
+                    coverageRemoveFlags[19] = true;
                     //===========
                     temp.parent.left = temp.right;
                 } else {
                     //BRANCH ID 20
-                    coverageFlags[20] = true;
+                    coverageRemoveFlags[20] = true;
                     //===========
                     temp.parent.right = temp.right;
                 }
@@ -277,17 +279,17 @@ public class BinaryTree {
             } // If it has a left child
             else {
                 //BRANCH ID 21
-                coverageFlags[21] = true;
+                coverageRemoveFlags[21] = true;
                 //===========
                 if (temp == root) {
                     //BRANCH ID 22
-                    coverageFlags[22] = true;
+                    coverageRemoveFlags[22] = true;
                     //===========
                     root = temp.left;
                     return true;
                 } else {
                     //BRANCH ID 23
-                    coverageFlags[23] = true;
+                    coverageRemoveFlags[23] = true;
                     //===========
                 }
 
@@ -296,12 +298,12 @@ public class BinaryTree {
                 // Assigns temp to left or right side
                 if (temp.data < temp.parent.data) {
                     //BRANCH ID 24
-                    coverageFlags[24] = true;
+                    coverageRemoveFlags[24] = true;
                     //===========
                     temp.parent.left = temp.left;
                 } else {
                     //BRANCH ID 25
-                    coverageFlags[25] = true;
+                    coverageRemoveFlags[25] = true;
                     //===========
                     temp.parent.right = temp.left;
                 }
@@ -413,4 +415,9 @@ public class BinaryTree {
             }
         }
     }
+
+    public static boolean[] getCoverageRemoveFlags() {
+        return coverageRemoveFlags;
+    }
+
 }
