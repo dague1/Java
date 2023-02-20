@@ -140,9 +140,27 @@ public class BinaryTree {
         if (temp.data != value) {
             return false;
         }
-
         // No children
         if (temp.right == null && temp.left == null) {
+            removeNoHelper(temp);
+        }
+        // Two children
+        else if (temp.left != null && temp.right != null) {
+            removeTwoHelper(temp);
+        } // One child
+        else {
+            removeOneHelper(temp);
+        }
+        return true;
+    }
+
+    /**
+     * Handles the case in remove when there is no child.
+     *
+     * @param temp is the node to be deleted
+     * @return If the value was deleted
+     */
+    public boolean removeNoHelper(Node temp) {
             if (temp == root) {
                 root = null;
             } // This if/else assigns the new node to be either the left or right child of the parent
@@ -152,81 +170,99 @@ public class BinaryTree {
                 temp.parent.left = null;
             }
             return true;
-        } // Two children
-        else if (temp.left != null && temp.right != null) {
-            Node successor = findSuccessor(temp);
+    }
+    /**
+     * Handles the case in remove when there are 2 children.
+     *
+     * @param temp is the node to be deleted
+     * @return If the value was deleted
+     */
+    public boolean removeTwoHelper(Node temp) {
+        Node successor = findSuccessor(temp);
 
-            // The left tree of temp is made the left tree of the successor
-            successor.left = temp.left;
-            successor.left.parent = successor;
+        // The left tree of temp is made the left tree of the successor
+        successor.left = temp.left;
+        successor.left.parent = successor;
 
-            // If the successor has a right child, the child's grandparent is it's new parent
-            if (successor.parent != temp) {
-                if (successor.right != null) {
-                    successor.right.parent = successor.parent;
-                    successor.parent.left = successor.right;
-                    successor.right = temp.right;
-                    successor.right.parent = successor;
-                } else {
-                    successor.parent.left = null;
-                    successor.right = temp.right;
-                    successor.right.parent = successor;
-                }
-            }
-
-            if (temp == root) {
-                successor.parent = null;
-                root = successor;
-                return true;
-            } // If you're not deleting the root
-            else {
-                successor.parent = temp.parent;
-
-                // This if/else assigns the new node to be either the left or right child of the parent
-                if (temp.parent.data < temp.data) {
-                    temp.parent.right = successor;
-                } else {
-                    temp.parent.left = successor;
-                }
-                return true;
-            }
-        } // One child
-        else {
-            // If it has a right child
-            if (temp.right != null) {
-                if (temp == root) {
-                    root = temp.right;
-                    return true;
-                }
-
-                temp.right.parent = temp.parent;
-
-                // Assigns temp to left or right child
-                if (temp.data < temp.parent.data) {
-                    temp.parent.left = temp.right;
-                } else {
-                    temp.parent.right = temp.right;
-                }
-                return true;
-            } // If it has a left child
-            else {
-                if (temp == root) {
-                    root = temp.left;
-                    return true;
-                }
-
-                temp.left.parent = temp.parent;
-
-                // Assigns temp to left or right side
-                if (temp.data < temp.parent.data) {
-                    temp.parent.left = temp.left;
-                } else {
-                    temp.parent.right = temp.left;
-                }
-                return true;
+        // If the successor has a right child, the child's grandparent is it's new parent
+        if (successor.parent != temp) {
+            if (successor.right != null) {
+                successor.right.parent = successor.parent;
+                successor.parent.left = successor.right;
+                successor.right = temp.right;
+                successor.right.parent = successor;
+            } else {
+                successor.parent.left = null;
+                successor.right = temp.right;
+                successor.right.parent = successor;
             }
         }
+
+        if (temp == root) {
+            successor.parent = null;
+            root = successor;
+            return true;
+        } // If you're not deleting the root
+        else {
+            successor.parent = temp.parent;
+
+            // This if/else assigns the new node to be either the left or right child of the parent
+            if (temp.parent.data < temp.data) {
+                temp.parent.right = successor;
+            } else {
+                temp.parent.left = successor;
+            }
+            return true;
+        }
     }
+
+    /**
+     * Handles the case in remove when there are 1 child.
+     *
+     * @param temp is the node to be deleted
+     * @return If the value was deleted
+     */
+    public boolean removeOneHelper(Node temp) {
+        if (temp.right != null) {
+            if (temp == root) {
+                root = temp.right;
+                return true;
+            }
+
+            temp.right.parent = temp.parent;
+
+            // Assigns temp to left or right child
+            if (temp.data < temp.parent.data) {
+                temp.parent.left = temp.right;
+            } else {
+                temp.parent.right = temp.right;
+            }
+            return true;
+        } // If it has a left child
+        else {
+            if (temp == root) {
+                root = temp.left;
+                return true;
+            }
+
+            temp.left.parent = temp.parent;
+
+            // Assigns temp to left or right side
+            if (temp.data < temp.parent.data) {
+                temp.parent.left = temp.left;
+            } else {
+                temp.parent.right = temp.left;
+            }
+            return true;
+        }
+    }
+
+
+
+
+
+
+
 
     /**
      * This method finds the Successor to the Node given. Move right once and go
