@@ -53,6 +53,24 @@ public class RegexMatchingTest {
     }
 
     @Test
+    void methodTwoShouldReturnTrueWhenRegexPatternMatchesSource() {
+        String input1 = "string";
+        String input2 = "s*i?g";
+        int svidx = 0;
+        int pvidx = 0;
+        assertTrue(RegexMatching.regexRecursion(input1, input2, svidx, pvidx));
+    }
+
+    @Test
+    void methodTwoShouldReturnFalseWhenRegexPatternDoesNotMatchSource() {
+        String input1 = "string";
+        String input2 = "s*ng?";
+        int svidx = 0;
+        int pvidx = 0;
+        assertFalse(RegexMatching.regexRecursion(input1, input2, svidx, pvidx));
+    }
+
+    @Test
     void methodThreeShouldReturnFalseWhenCurrentStrgIndexEqualsOne() {
         String input1 = "source";
         String input2 = "pattern";
