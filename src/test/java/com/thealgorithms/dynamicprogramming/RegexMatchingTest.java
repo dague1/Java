@@ -51,4 +51,26 @@ public class RegexMatchingTest {
         int pvidx = 1;
         assertFalse(RegexMatching.regexRecursion(input1, input2, svidx, pvidx));
     }
+
+    @Test
+    void methodThreeShouldReturnFalseWhenCurrentStrgIndexEqualsOne() {
+        String input1 = "source";
+        String input2 = "pattern";
+        int svidx = 1;
+        int pvidx = 1;
+        int[][] strg = new int[svidx+1][pvidx+1];
+        strg[svidx][pvidx] = 1;
+        assertFalse(RegexMatching.regexRecursion(input1, input2, svidx, pvidx, strg));
+    }
+
+    @Test
+    void methodThreeShouldReturnTrueWhenCurrentStrgIndexEqualsTwo() {
+        String input1 = "source";
+        String input2 = "pattern";
+        int svidx = 1;
+        int pvidx = 1;
+        int[][] strg = new int[svidx+1][pvidx+1];
+        strg[svidx][pvidx] = 2;
+        assertTrue(RegexMatching.regexRecursion(input1, input2, svidx, pvidx, strg));
+    }
 }
