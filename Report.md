@@ -159,46 +159,9 @@ The tool we chose to use was OpenClover. It was fairly simple to set up and use 
 Show a patch (or link to a branch) that shows the instrumented code to
 gather coverage measurements.
 
-Branch: https://github.com/dague1/Java/tree/8-other-35-coverage-measurement-improvement
+**Branch link:** https://github.com/dague1/Java/tree/8-other-35-coverage-measurement-improvement
 
-git diff master 8-other-35-coverage-measurement-improvement:
-
-diff --git a/Report.md b/Report.md  
-index d492a67..a77b53b 100644  
---- a/Report.md  
-+++ b/Report.md  
-
-diff --git a/pom.xml b/pom.xml  
-index accdd21..5321c89 100644  
---- a/pom.xml  
-+++ b/pom.xml  
-
-diff --git a/src/main/java/com/thealgorithms/CoverageResults.java b/src/main/java/com/thealgorithms/CoverageResults.java  
-new file mode 100644  
-index 0000000..51619f8  
---- /dev/null  
-+++ b/src/main/java/com/thealgorithms/CoverageResults.java  
-
-diff --git a/src/main/java/com/thealgorithms/datastructures/trees/BinaryTree.java b/src/main/java/com/thealgorithms/datastructures/trees/BinaryTree.java  
-index 48dfe96..65be209 100644  
---- a/src/main/java/com/thealgorithms/datastructures/trees/BinaryTree.java  
-+++ b/src/main/java/com/thealgorithms/datastructures/trees/BinaryTree.java  
-
-diff --git a/src/main/java/com/thealgorithms/maths/LongDivision.java b/src/main/java/com/thealgorithms/maths/LongDivision.java  
-index 88a0a26..5b96bd3 100644  
---- a/src/main/java/com/thealgorithms/maths/LongDivision.java  
-+++ b/src/main/java/com/thealgorithms/maths/LongDivision.java  
-
-diff --git a/src/test/java/com/thealgorithms/datastructures/trees/BinaryTreeTest.java b/src/test/java/com/thealgorithms/datastructures/trees/BinaryTreeTest.java  
-new file mode 100644  
-index 0000000..71c1440  
---- /dev/null  
-+++ b/src/test/java/com/thealgorithms/datastructures/trees/BinaryTreeTest.java  
-
-diff --git a/src/test/java/com/thealgorithms/maths/LongDivisionTest.java b/src/test/java/com/thealgorithms/maths/LongDivisionTest.java  
-index c35b606..fff1315 100644  
---- a/src/test/java/com/thealgorithms/maths/LongDivisionTest.java  
-+++ b/src/test/java/com/thealgorithms/maths/LongDivisionTest.java  
+All commits in this branch had to do with the creation of our own coverage measurement tool.
 
 ### Evaluation
 
@@ -235,34 +198,17 @@ Most method tested had 0% civerage since they did'nt have any tests implemented 
 
 ### Test cases added:
 
+**We added:**  
 All tests in BinaryTreeTest.java  
 All tests in RegexMatchingTest.java  
 Tests testDivideDividendZero(), testDivideNegativeDividendLess() and testDividePositiveDividendPositiveDivisorPart1Zero() in LongDivisionTest.java
 
-
-### git diff master 10-other-p+-write-four-enhanced-unit-tests:  
-
-diff --git a/Report.md b/Report.md  
-index d492a67..2a2d2ed 100644  
---- a/Report.md  
-+++ b/Report.md  
-
-diff --git a/src/test/java/com/thealgorithms/datastructures/trees/BinaryTreeTest.java b/src/test/java/com/thealgorithms/datastructures/trees/BinaryTreeTest.java  
-new file mode 100644  
-index 0000000..e7f0359  
---- /dev/null  
-+++ b/src/test/java/com/thealgorithms/datastructures/trees/BinaryTreeTest.java  
-
-diff --git a/src/test/java/com/thealgorithms/dynamicprogramming/RegexMatchingTest.java b/src/test/java/com/thealgorithms/dynamicprogramming/RegexMatchingTest.java  
-new file mode 100644  
-index 0000000..dfa1c89  
---- /dev/null  
-+++ b/src/test/java/com/thealgorithms/dynamicprogramming/RegexMatchingTest.java  
-
-diff --git a/src/test/java/com/thealgorithms/maths/LongDivisionTest.java b/src/test/java/com/thealgorithms/maths/LongDivisionTest.java  
-index c35b606..9a0182c 100644  
---- a/src/test/java/com/thealgorithms/maths/LongDivisionTest.java  
-+++ b/src/test/java/com/thealgorithms/maths/LongDivisionTest.java  
+**Links:**  
+https://github.com/dague1/Java/commit/e5f06b12ac52d494dc0f2e7515db31ef851f6dc8
+https://github.com/dague1/Java/commit/716019949e9bac93648e63c09a48bacde879dc4e  
+https://github.com/dague1/Java/commit/894f6aabf79bea6f10ad30ba7cacfda5976e9e50  
+https://github.com/dague1/Java/commit/3c78a89bf2ce8218799b901069f7eda5b0b60d9a  
+https://github.com/dague1/Java/commit/69059225291e0bd559ce51172dac5319cdea1cb3  
 
 ### Number of test cases added: two per team member (P) or at least four (P+).
 
