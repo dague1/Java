@@ -16,6 +16,8 @@ import java.util.Queue;
  */
 public class BinaryTree {
 
+    private static boolean[] coverageRemoveFlags = new boolean[26];
+
     /**
      * This class implements the nodes that will go on the Binary Tree. They
      * consist of the data in them, the node to the left, the node to the right,
@@ -138,22 +140,44 @@ public class BinaryTree {
 
         // If the value doesn't exist
         if (temp.data != value) {
+            //BRANCH ID 0
+            coverageRemoveFlags[0] = true;
+            //===========
             return false;
+        } else {
+            //BRANCH ID 1
+            coverageRemoveFlags[1] = true;
+            //===========
         }
 
         // No children
         if (temp.right == null && temp.left == null) {
+            //BRANCH ID 2
+            coverageRemoveFlags[2] = true;
+            //===========
             if (temp == root) {
+                //BRANCH ID 3
+                coverageRemoveFlags[3] = true;
+                //===========
                 root = null;
             } // This if/else assigns the new node to be either the left or right child of the parent
             else if (temp.parent.data < temp.data) {
+                //BRANCH ID 4
+                coverageRemoveFlags[4] = true;
+                //===========
                 temp.parent.right = null;
             } else {
+                //BRANCH ID 5
+                coverageRemoveFlags[5] = true;
+                //===========
                 temp.parent.left = null;
             }
             return true;
         } // Two children
         else if (temp.left != null && temp.right != null) {
+            //BRANCH ID 6
+            coverageRemoveFlags[6] = true;
+            //===========
             Node successor = findSuccessor(temp);
 
             // The left tree of temp is made the left tree of the successor
@@ -162,65 +186,125 @@ public class BinaryTree {
 
             // If the successor has a right child, the child's grandparent is it's new parent
             if (successor.parent != temp) {
+                //BRANCH ID 7
+                coverageRemoveFlags[7] = true;
+                //===========
                 if (successor.right != null) {
+                    //BRANCH ID 8
+                    coverageRemoveFlags[8] = true;
+                    //===========
                     successor.right.parent = successor.parent;
                     successor.parent.left = successor.right;
                     successor.right = temp.right;
                     successor.right.parent = successor;
                 } else {
+                    //BRANCH ID 9
+                    coverageRemoveFlags[9] = true;
+                    //===========
                     successor.parent.left = null;
                     successor.right = temp.right;
                     successor.right.parent = successor;
                 }
+            } else {
+                //BRANCH ID 10
+                coverageRemoveFlags[10] = true;
+                //===========
             }
 
             if (temp == root) {
+                //BRANCH ID 11
+                coverageRemoveFlags[11] = true;
+                //===========
                 successor.parent = null;
                 root = successor;
                 return true;
             } // If you're not deleting the root
             else {
+                //BRANCH ID 12
+                coverageRemoveFlags[12] = true;
+                //===========
                 successor.parent = temp.parent;
 
                 // This if/else assigns the new node to be either the left or right child of the parent
                 if (temp.parent.data < temp.data) {
+                    //BRANCH ID 13
+                    coverageRemoveFlags[13] = true;
+                    //===========
                     temp.parent.right = successor;
                 } else {
+                    //BRANCH ID 14
+                    coverageRemoveFlags[14] = true;
+                    //===========
                     temp.parent.left = successor;
                 }
                 return true;
             }
         } // One child
         else {
+            //BRANCH ID 15
+            coverageRemoveFlags[15] = true;
+            //===========
             // If it has a right child
             if (temp.right != null) {
+                //BRANCH ID 16
+                coverageRemoveFlags[16] = true;
+                //===========
                 if (temp == root) {
+                    //BRANCH ID 17
+                    coverageRemoveFlags[17] = true;
+                    //===========
                     root = temp.right;
                     return true;
+                } else {
+                    //BRANCH ID 18
+                    coverageRemoveFlags[18] = true;
+                    //===========
                 }
 
                 temp.right.parent = temp.parent;
 
                 // Assigns temp to left or right child
                 if (temp.data < temp.parent.data) {
+                    //BRANCH ID 19
+                    coverageRemoveFlags[19] = true;
+                    //===========
                     temp.parent.left = temp.right;
                 } else {
+                    //BRANCH ID 20
+                    coverageRemoveFlags[20] = true;
+                    //===========
                     temp.parent.right = temp.right;
                 }
                 return true;
             } // If it has a left child
             else {
+                //BRANCH ID 21
+                coverageRemoveFlags[21] = true;
+                //===========
                 if (temp == root) {
+                    //BRANCH ID 22
+                    coverageRemoveFlags[22] = true;
+                    //===========
                     root = temp.left;
                     return true;
+                } else {
+                    //BRANCH ID 23
+                    coverageRemoveFlags[23] = true;
+                    //===========
                 }
 
                 temp.left.parent = temp.parent;
 
                 // Assigns temp to left or right side
                 if (temp.data < temp.parent.data) {
+                    //BRANCH ID 24
+                    coverageRemoveFlags[24] = true;
+                    //===========
                     temp.parent.left = temp.left;
                 } else {
+                    //BRANCH ID 25
+                    coverageRemoveFlags[25] = true;
+                    //===========
                     temp.parent.right = temp.left;
                 }
                 return true;
@@ -331,4 +415,9 @@ public class BinaryTree {
             }
         }
     }
+
+    public static boolean[] getCoverageRemoveFlags() {
+        return coverageRemoveFlags;
+    }
+
 }

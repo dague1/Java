@@ -150,40 +150,121 @@ Document your experience in using a "new"/different coverage tool.
 How well was the tool documented? Was it possible/easy/difficult to
 integrate it with your build environment?
 
+The tool we chose to use was OpenClover. It was fairly simple to set up and use through Maven. While running the coverage measurement, we encountered some trouble where OpenClover could not measure certain methods and classes. The exceptions that were thrown indicated there was some syntax error. However, when looking into the files ourselves, the syntax was fine. Luckily none of the method that we planned to use for the assignment caused any trouble for OpenClover so we ended up running the measurement tool only on the files including our choosen methods instead of running it on the whole project.
+
 ### Your own coverage tool
 
 Show a patch (or link to a branch) that shows the instrumented code to
 gather coverage measurements.
 
-The patch is probably too long to be copied here, so please add
-the git command that is used to obtain the patch instead:
+Branch: https://github.com/dague1/Java/tree/8-other-35-coverage-measurement-improvement
 
-git diff ...
+git diff master 8-other-35-coverage-measurement-improvement:
 
-What kinds of constructs does your tool support, and how accurate is
-its output?
+diff --git a/Report.md b/Report.md  
+index d492a67..a77b53b 100644  
+--- a/Report.md  
++++ b/Report.md  
+
+diff --git a/pom.xml b/pom.xml  
+index accdd21..5321c89 100644  
+--- a/pom.xml  
++++ b/pom.xml  
+
+diff --git a/src/main/java/com/thealgorithms/CoverageResults.java b/src/main/java/com/thealgorithms/CoverageResults.java  
+new file mode 100644  
+index 0000000..51619f8  
+--- /dev/null  
++++ b/src/main/java/com/thealgorithms/CoverageResults.java  
+
+diff --git a/src/main/java/com/thealgorithms/datastructures/trees/BinaryTree.java b/src/main/java/com/thealgorithms/datastructures/trees/BinaryTree.java  
+index 48dfe96..65be209 100644  
+--- a/src/main/java/com/thealgorithms/datastructures/trees/BinaryTree.java  
++++ b/src/main/java/com/thealgorithms/datastructures/trees/BinaryTree.java  
+
+diff --git a/src/main/java/com/thealgorithms/maths/LongDivision.java b/src/main/java/com/thealgorithms/maths/LongDivision.java  
+index 88a0a26..5b96bd3 100644  
+--- a/src/main/java/com/thealgorithms/maths/LongDivision.java  
++++ b/src/main/java/com/thealgorithms/maths/LongDivision.java  
+
+diff --git a/src/test/java/com/thealgorithms/datastructures/trees/BinaryTreeTest.java b/src/test/java/com/thealgorithms/datastructures/trees/BinaryTreeTest.java  
+new file mode 100644  
+index 0000000..71c1440  
+--- /dev/null  
++++ b/src/test/java/com/thealgorithms/datastructures/trees/BinaryTreeTest.java  
+
+diff --git a/src/test/java/com/thealgorithms/maths/LongDivisionTest.java b/src/test/java/com/thealgorithms/maths/LongDivisionTest.java  
+index c35b606..fff1315 100644  
+--- a/src/test/java/com/thealgorithms/maths/LongDivisionTest.java  
++++ b/src/test/java/com/thealgorithms/maths/LongDivisionTest.java  
 
 ### Evaluation
 
-1. How detailed is your coverage measurement?
+1. How detailed is your coverage measurement?  
+Our tool checks all branches of a method meaning any while, if or switch. It also checks exception handleing in the form of a try-catch block.
 
-2. What are the limitations of your own tool?
+2. What are the limitations of your own tool?  
+The tool has to be set up manually before it is run, which can be quite extensive work for a long and complex method.
 
-3. Are the results of your tool consistent with existing coverage tools?
+3. Are the results of your tool consistent with existing coverage tools?  
+Most method tested had 0% civerage since they did'nt have any tests implemented for them, for the rest OpenClover measured slightly higher coverage but it was close enough.
 
 ## Coverage improvement
 
-Show the comments that describe the requirements for the coverage.
+### Report of old coverage:
 
-Report of old coverage: [link]
+| Function | Param | File Path | Coverage (OpenClover) | Coverage (DIY) |
+|---|---|---|---|---|
+| remove | 1 | datastructures/trees/BinaryTree.java | 0% | 0% |
+| divide | 2 | maths/LongDivision.java | 86.6% | 68% |
+| regexRecursion | 2 | dynamicprogramming/RegexMatching.java | 0% | 0% |
+| regexRecursion | 4 | dynamicprogramming/RegexMatching.java | 0% | 0% |
+| regexRecursion | 5 | dynamicprogramming/RegexMatching.java | 0% | 0% |
 
-Report of new coverage: [link]
+### Report of new coverage:
 
-Test cases added:
+| Function | Param | File Path | Coverage (OpenClover) | Coverage (DIY) |
+|---|---|---|---|---|
+| remove | 1 | datastructures/trees/BinaryTree.java | 62.1% | 61% |
+| divide | 2 | maths/LongDivision.java | 92.9% | 84% |
+| regexRecursion | 2 | dynamicprogramming/RegexMatching.java | 51.2% | 57% |
+| regexRecursion | 4 | dynamicprogramming/RegexMatching.java | 22% | 28% |
+| regexRecursion | 5 | dynamicprogramming/RegexMatching.java | 0% | 0% |
 
-git diff ...
+### Test cases added:
 
-Number of test cases added: two per team member (P) or at least four (P+).
+All tests in BinaryTreeTest.java  
+All tests in RegexMatchingTest.java  
+Tests testDivideDividendZero(), testDivideNegativeDividendLess() and testDividePositiveDividendPositiveDivisorPart1Zero() in LongDivisionTest.java
+
+
+### git diff master 10-other-p+-write-four-enhanced-unit-tests:  
+
+diff --git a/Report.md b/Report.md  
+index d492a67..2a2d2ed 100644  
+--- a/Report.md  
++++ b/Report.md  
+
+diff --git a/src/test/java/com/thealgorithms/datastructures/trees/BinaryTreeTest.java b/src/test/java/com/thealgorithms/datastructures/trees/BinaryTreeTest.java  
+new file mode 100644  
+index 0000000..e7f0359  
+--- /dev/null  
++++ b/src/test/java/com/thealgorithms/datastructures/trees/BinaryTreeTest.java  
+
+diff --git a/src/test/java/com/thealgorithms/dynamicprogramming/RegexMatchingTest.java b/src/test/java/com/thealgorithms/dynamicprogramming/RegexMatchingTest.java  
+new file mode 100644  
+index 0000000..dfa1c89  
+--- /dev/null  
++++ b/src/test/java/com/thealgorithms/dynamicprogramming/RegexMatchingTest.java  
+
+diff --git a/src/test/java/com/thealgorithms/maths/LongDivisionTest.java b/src/test/java/com/thealgorithms/maths/LongDivisionTest.java  
+index c35b606..9a0182c 100644  
+--- a/src/test/java/com/thealgorithms/maths/LongDivisionTest.java  
++++ b/src/test/java/com/thealgorithms/maths/LongDivisionTest.java  
+
+### Number of test cases added: two per team member (P) or at least four (P+).
+
+We added 4 tests per team member for in total 20 new tests.
 
 ## Self-assessment: Way of working
 
