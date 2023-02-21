@@ -107,7 +107,7 @@ It was hard to find any meaningful changes to be made to improve the complexity 
 
 
 **regexRecursion(4)**
-
+This function is very similar to the one with two arguments so it was refactored in the same way. I.e. by dividing it into two functions, one to handle the base cases and one for the actual recursion. 
 
 
 **regexRecursion(5)**
