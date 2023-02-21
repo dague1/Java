@@ -111,9 +111,9 @@ This function is very similar to the one with two arguments so it was refactored
 
 
 **regexRecursion(5)**
+We refactored this function in the same way for the previous functions which is by dividing it into two functions. This leads to reducing the CC from 16 to 10 so the CC it reduced by 37,5%.
 
 
-git diff ...
 
 ## Coverage
 
