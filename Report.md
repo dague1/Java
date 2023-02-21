@@ -139,7 +139,17 @@ We do not have too much to add here, since the three regex-functions are quite s
 **regexRecursion(5)**
 
 
-git diff ...
+_Commit history for the functions in the same order as listed above:_
+
+https://github.com/dague1/Java/commit/9fa57ed36b8b28bb4ea4c947c0576bd922b8b56b
+
+https://github.com/dague1/Java/commit/dfaf2f2aecb3c43044b2f800fd97721f1a1ba890
+
+https://github.com/dague1/Java/commit/160f0678bdaa3aacc825286d247784d79561e77a
+
+https://github.com/dague1/Java/commit/0f22f6ef92f4d9bd4af59d364bf0ef085dc2454f
+
+https://github.com/dague1/Java/commit/618c94087d64372f1adf8642f281f53f201ba715
 
 ## Coverage
 
