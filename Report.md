@@ -103,7 +103,7 @@ For this one, it was a lot harder to do meaningful refactoring. We effectively r
 
 
 **regexRecursion(2)**
-It was hard to find any meaningful changes to be made to improve the complexity of this method. We therefore followed our plan from the previous section. We divided the method into 2 methods. Where the first method handled some typical base ccases of the input and returned a quick answer. While the second handled recursive work for tougher input.
+It was hard to find any meaningful changes to be made to improve the complexity of this method. We therefore followed our plan from the previous section. We divided the method into 2 methods. Where the first method handled some typical base ccases of the input and returned a quick answer. While the second handled recursive work for tougher input. The end complexity for the two methods was 9 and 5 respectively. Which results in an average complexity reduction of 45,5%.
 
 
 **regexRecursion(4)**
