@@ -119,24 +119,26 @@ We do not have too much to add here, since the three regex-functions are quite s
 
 ### Carried out refactoring (optional, P+):
 
+_To see our refactorings, check out the same functions but in branch 11 of this repo_
+
 **remove()**
 
-
+As written in the plan, we refactored the different cases (0,1 or 2 children) into separate helper functions. This effectively brought the CC down from 15 (manual try 3) to 4 (a 73% decrease), which obviously is a significant improvement. Furthermore, we maintained readability which we are quite proud of.
 
 **divide()**
 
-
-
+For this one, it was a lot harder to do meaningful refactoring. We effectively reduced the CC by exactly 35% by introducing an error handling function and some updating functions. We do think the readability is somewhat compromised, and the LoC count is more or less the ame.
 
 **regexRecursion(2)**
-
+It was hard to find any meaningful changes to be made to improve the complexity of this method. We therefore followed our plan from the previous section. We divided the method into 2 methods. Where the first method handled some typical base ccases of the input and returned a quick answer. While the second handled recursive work for tougher input. The end complexity for the two methods was 9 and 5 respectively. Which results in an average complexity reduction of 45,5%.
 
 
 **regexRecursion(4)**
-
+This function is very similar to the one with two arguments so it was refactored in the same way. I.e. by dividing it into two functions, one to handle the base cases and one for the actual recursion. 
 
 
 **regexRecursion(5)**
+We refactored this function in the same way for the previous functions which is by dividing it into two functions. This leads to reducing the CC from 16 to 10 so the CC it reduced by 37,5%.
 
 
 git diff ...
