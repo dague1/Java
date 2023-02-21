@@ -132,7 +132,27 @@ public class BinaryTree {
      * @param value Value to be deleted
      * @return If the value was deleted
      */
+    public boolean remove(int value) {
+        // temp is the node to be deleted
+        Node temp = find(value);
 
+        // If the value doesn't exist
+        if (temp.data != value) {
+            return false;
+        }
+        // No children
+        if (temp.right == null && temp.left == null) {
+            removeNoHelper(temp);
+        }
+        // Two children
+        else if (temp.left != null && temp.right != null) {
+            removeTwoHelper(temp);
+        } // One child
+        else {
+            removeOneHelper(temp);
+        }
+        return true;
+    }
 
     /**
      * Handles the case in remove when there is no child.
