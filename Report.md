@@ -184,9 +184,7 @@ Most method tested had 0% civerage since they did'nt have any tests implemented 
 
 ## Coverage improvement
 
-Show the comments that describe the requirements for the coverage.
-
-Report of old coverage: [link]
+### Report of old coverage:
 
 | Function | Param | File Path | Coverage (OpenClover) | Coverage (DIY) |
 |---|---|---|---|---|
@@ -196,13 +194,50 @@ Report of old coverage: [link]
 | regexRecursion | 4 | dynamicprogramming/RegexMatching.java | 0% | 0% |
 | regexRecursion | 5 | dynamicprogramming/RegexMatching.java | 0% | 0% |
 
-Report of new coverage: [link]
+### Report of new coverage:
 
-Test cases added:
+| Function | Param | File Path | Coverage (OpenClover) | Coverage (DIY) |
+|---|---|---|---|---|
+| remove | 1 | datastructures/trees/BinaryTree.java | 62.1% | 61% |
+| divide | 2 | maths/LongDivision.java | 92.9% | 84% |
+| regexRecursion | 2 | dynamicprogramming/RegexMatching.java | 51.2% | 57% |
+| regexRecursion | 4 | dynamicprogramming/RegexMatching.java | 22% | 28% |
+| regexRecursion | 5 | dynamicprogramming/RegexMatching.java | 0% | 0% |
 
-git diff ...
+### Test cases added:
 
-Number of test cases added: two per team member (P) or at least four (P+).
+All tests in BinaryTreeTest.java  
+All tests in RegexMatchingTest.java  
+Tests testDivideDividendZero(), testDivideNegativeDividendLess() and testDividePositiveDividendPositiveDivisorPart1Zero() in LongDivisionTest.java
+
+
+### git diff master 10-other-p+-write-four-enhanced-unit-tests:  
+
+diff --git a/Report.md b/Report.md  
+index d492a67..2a2d2ed 100644  
+--- a/Report.md  
++++ b/Report.md  
+
+diff --git a/src/test/java/com/thealgorithms/datastructures/trees/BinaryTreeTest.java b/src/test/java/com/thealgorithms/datastructures/trees/BinaryTreeTest.java  
+new file mode 100644  
+index 0000000..e7f0359  
+--- /dev/null  
++++ b/src/test/java/com/thealgorithms/datastructures/trees/BinaryTreeTest.java  
+
+diff --git a/src/test/java/com/thealgorithms/dynamicprogramming/RegexMatchingTest.java b/src/test/java/com/thealgorithms/dynamicprogramming/RegexMatchingTest.java  
+new file mode 100644  
+index 0000000..dfa1c89  
+--- /dev/null  
++++ b/src/test/java/com/thealgorithms/dynamicprogramming/RegexMatchingTest.java  
+
+diff --git a/src/test/java/com/thealgorithms/maths/LongDivisionTest.java b/src/test/java/com/thealgorithms/maths/LongDivisionTest.java  
+index c35b606..9a0182c 100644  
+--- a/src/test/java/com/thealgorithms/maths/LongDivisionTest.java  
++++ b/src/test/java/com/thealgorithms/maths/LongDivisionTest.java  
+
+### Number of test cases added: two per team member (P) or at least four (P+).
+
+We added 4 tests per team member for in total 20 new tests.
 
 ## Self-assessment: Way of working
 
