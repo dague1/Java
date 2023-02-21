@@ -141,7 +141,17 @@ This function is very similar to the one with two arguments so it was refactored
 We refactored this function in the same way for the previous functions which is by dividing it into two functions. This leads to reducing the CC from 16 to 10 so the CC it reduced by 37,5%.
 
 
-git diff ...
+_Commit history for the functions in the same order as listed above:_
+
+https://github.com/dague1/Java/commit/9fa57ed36b8b28bb4ea4c947c0576bd922b8b56b
+
+https://github.com/dague1/Java/commit/dfaf2f2aecb3c43044b2f800fd97721f1a1ba890
+
+https://github.com/dague1/Java/commit/160f0678bdaa3aacc825286d247784d79561e77a
+
+https://github.com/dague1/Java/commit/0f22f6ef92f4d9bd4af59d364bf0ef085dc2454f
+
+https://github.com/dague1/Java/commit/618c94087d64372f1adf8642f281f53f201ba715
 
 ## Coverage
 
